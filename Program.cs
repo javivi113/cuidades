@@ -7,26 +7,21 @@ class Program
 {
     static void Main(string[] args)
     {
-        string[] cities={"Tokyo", "London", "Rome", "Donlon", "Kyoto", "Paris", "otoky","mero", "sPaRi","Koyto","remo" };
-        WriteLine( clasifiCities(cities));
+        string[] cities = { "Tokyo", "London", "Rome", "Donlon", "Kyoto", "Paris", "otoky", "mero", "sPaRi", "Koyto", "remo" };
+        WriteLine(clasifiCities(cities));
     }
-     public static string fMoverPal(string ciudad)
+    public static bool fMoverPal(string ciudad, string cuidad2)
     {
-        char[] SAnagrama = ciudad.ToCharArray();
-        for (var i = 1; i < SAnagrama.Length; i++)
+        string auxCuidad2=cuidad2;
+        do
         {
-            for (var j = 0; j < SAnagrama.Length - 1; j++)
+            auxCuidad2=auxCuidad2.Substring(auxCuidad2.Length-1)+auxCuidad2.Substring(0,auxCuidad2.Length-1);
+            if (ciudad==auxCuidad2)
             {
-                if (SAnagrama[j] > SAnagrama[j + 1])
-                {
-                    var aux = SAnagrama[j];
-                    SAnagrama[j] = SAnagrama[j + 1];
-                    SAnagrama[j + 1] = aux;
-                }
+                return true;
             }
-        }
-        var res = new string(SAnagrama);
-        return res;
+        } while (cuidad2!=auxCuidad2);
+        return false;
     }
     public static string clasifiCities(string[] saCities)
     {
@@ -40,7 +35,8 @@ class Program
             lPorVuelta.Add(paramListCitys[i]);
             for (var j = i + 1; j < paramListCitys.Count; j++)
             {
-                if (fMoverPal(paramListCitys[i].ToUpper()) == fMoverPal(paramListCitys[j].ToUpper()))
+                // if (fMoverPal(paramListCitys[i].ToUpper()) == fMoverPal(paramListCitys[j].ToUpper()))
+                if (fMoverPal(paramListCitys[i].ToUpper(), paramListCitys[j].ToUpper()))
                 {
                     lPorVuelta.Add(paramListCitys[j]);
                     paramListCitys.RemoveAt(j);
@@ -52,11 +48,11 @@ class Program
     }
     public static string aBi_String(List<List<string>> lista)
     {
-        string resul="[";
+        string resul = "[";
         for (var i = 0; i < lista.Count; i++)
         {
             resul += (string.Join(", ", lista[i].ToArray()).ToString() + " ],[");
         }
-        return resul.Substring(0,resul.Length-2);
+        return resul.Substring(0, resul.Length - 2);
     }
 }
