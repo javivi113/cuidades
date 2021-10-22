@@ -12,21 +12,21 @@ class Program
     }
      public static string fMoverPal(string ciudad)
     {
-        char[] SAnagrama = ciudad.ToCharArray();
-        for (var i = 1; i < SAnagrama.Length; i++)
+        char[] aCCuidad = ciudad.ToCharArray();
+        for (var i = 1; i < aCCuidad.Length; i++)
         {
-            for (var j = 0; j < SAnagrama.Length - 1; j++)
+            for (var j = 0; j < aCCuidad.Length - 1; j++)
             {
-                if (SAnagrama[j] > SAnagrama[j + 1])
+                if (aCCuidad[j] > aCCuidad[j + 1])
                 {
-                    var aux = SAnagrama[j];
-                    SAnagrama[j] = SAnagrama[j + 1];
-                    SAnagrama[j + 1] = aux;
+                    var aux = aCCuidad[j];
+                    aCCuidad[j] = aCCuidad[j + 1];
+                    aCCuidad[j + 1] = aux;
                 }
             }
         }
-        var res = new string(SAnagrama);
-        return res;
+        var resultado = new string(aCCuidad);
+        return resultado;
     }
     public static string clasifiCities(string[] saCities)
     {
